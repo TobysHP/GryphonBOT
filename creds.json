@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gryphon-bot",
+  "private_key_id": "1442845eb1d89b1192f5804c3d19b511ddf3a6bf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCn1DgyOL3QcSvG\nhXXEAS5TOJHD2uP1/Jv33Z5dKHQyL9tpuLy4BvLKU0NyS+yKuH6+GBDUipFdM4Id\nA1csUd7kIJqk31pjb4bAfPyl/HKuhA+KZesl1aMIpiXhQzAOBVca9pqDLK0sN3hX\nLOaH6+4TttBE9ow3xXck185eYJxBgmAanthK/r1SuuLw9kjxsh8j2454z/fseNAc\nq3hDMn376IHsqt3GOrwV6NxgOKwZAnZR8trwDZIKZqFKugDK4EYjoOBC5bZwRWpZ\n8+91PBCP8n2tdIFLVVlF4pqwIxEAW6gkaabn2iyvee7h4cBcVO6nLK/rAj4eW5nO\nkzEvUNYHAgMBAAECggEADGEI7BtnVNKkKfZ6I0T7B8RqbAnfOquxTW0ZW0G6oGEL\nTBcGRISur+HIXcvf3LOTFa5sv2ChLEC6Xi165pf7WtRU08htwFvfkp8le5DNXLX8\n93ZhC99gMSkgLidoigA21pRN/VL0SwikZbm4H1p1qxqW7h9JZGu6SAtq+2cg32wB\n0IQ0IiTeux/zcoSE1yhdH+lL4wwXpDT5Zc1ZKak9pI/95rEvPsMoUxkq3rNwGL1g\niQuIXv1SU5Xz+0BiMxnhDAcPXV8G+RCV74UjZX9QbpcxkgProlA+5Gag/ZI6luoP\nRwc0Pw+ZpyEcfPBlQOJBsAg+HpT80AY4mjhspQ82YQKBgQDaImDfBCwJFIH1lrvR\n8PPr06Yka9ajnWexn2ZkgBbbKzt6y27dh2bgTWXiGJJOO1TxkNeolGUoxTlQRrAl\nCrcWKDkP5lFQ1CmqSIcPAapPJU3sWXLN4K69wFZW7il80z0H8iCLDxx8eQgDgBHP\n9oYLP/FpFOvcyY5frPoQZBC/LwKBgQDE9lWqI3/v39CRtb3w7gm0MvQTEzlfTu2o\ndRMjs7qMKNFVJ20LKFoaXcZXmWarLO5guGrgdPz3/10AdJu8AMQHhuRMQtI737Ta\nOUyGEjHMiveY/vuThfvObug7fFLAfqQR/7zp8itGJtW2hvEvxhy05AE5+gpWeWTd\nv61P9D9gqQKBgAWCLr4TBeWozetcxht0IUTIUH7E9mOlWvQCWXyaO3mHavYb4w3X\nGIL7kWIXSsKM/wUmqjuIm9FewabEUjhtP9hgZaiAIXeQFAlH0ZlQanObNo+MZrjK\nPr9t9wA0/Xk4gGcN90JrvEVsbQZhmpGM4S+xirAjph0qPd0uqhX14PJjAoGANvla\nZ6aI6vbZTBIh9cE6zCT8ouZWuRdalg43TVu40a4C33WlpduZaoqJ9aFHWrerwSs4\nCXYdtUp9NsdVQGAmVsN7rR1peHS0EcS0aydg5upSuU1SApb+9VtXTmMg5cFzIeLz\nY4jIM0hblhqL7v2ovYR2Iyx6/i/by1jYktxlZCECgYAl9hSz+M1YP096gpYR186l\nB+f/hKhIDGKEOlQCHrZJv4lo8nQshjywmpKM+djDnvNl3wWr7TQT1sVJcdO5Hzsi\nghHYV2T5qKEDRGTz5NTTrP7Phsm2F5JzvJJlw8ZQX0uIjYtVmpBnATnJa0cqBFtT\nkXIy9Gf+3h70RWWcxqaWIQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "pierre@gryphon-bot.iam.gserviceaccount.com",
+  "client_id": "107771387334918519155",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pierre%40gryphon-bot.iam.gserviceaccount.com"
+}

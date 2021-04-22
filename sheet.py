@@ -11,7 +11,7 @@ scope = [
 ]
 creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
 client_sheets = gspread.authorize(creds)
-sheet = client_sheets.open("GLFgryphons").worksheet("MU datas") 
+sheet = client_sheets.open("Lost Tribe").worksheet("MU datas") 
 
 def updateDatas():
 

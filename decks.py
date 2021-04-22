@@ -62,9 +62,9 @@ async def setDeck(client: discord.Client, message: discord.Message):
     index = [x.lower() for x in db["decks"].keys()].index(deck.lower())
     print(index)
     player["D2P"] = [*db["decks"]][index]
-    state = [*db["decks"]][index]+" est maintenant votre deck par défaut"
+    state = [*db["decks"]][index]+" is now your default deck"
   else:
-    state = deck+" ne fait pas partie des decks jouable"
+    state = deck+" is not a playable deck"
   
   db[str(user.id)] = player
   

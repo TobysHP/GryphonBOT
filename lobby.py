@@ -39,7 +39,7 @@ async def can(client: discord.Client, message: discord.Message):
     if checkLobby(message.author.id) > -1:
       embed.add_field(
           name="Statut",
-          value="❌ " + message.author.name + " est déjà dans un lobby", 
+          value="❌ " + message.author.name + " is already in a lobby", 
           inline=False)
       await message.channel.send(embed=embed)
       return 0
@@ -48,14 +48,14 @@ async def can(client: discord.Client, message: discord.Message):
         if message.author.id not in db.keys():
           embed.add_field(
               name="Statut",
-              value="❌ " + message.author.name + " n'est pas inscrit", 
+              value="❌ " + message.author.name + " is not registered", 
               inline=False)
           await message.channel.send(embed=embed)
           return 0
         elif db[str(message.author.id)]["D2P"] == None:
           embed.add_field(
               name="Statut",
-              value="❌ " + message.author.name + " n'a pas de deck valide", 
+              value="❌ " + message.author.name + " doesn't have a valid deck", 
               inline=False)
           await message.channel.send(embed=embed)
           return 0
@@ -65,7 +65,7 @@ async def can(client: discord.Client, message: discord.Message):
           lob.append(message.author.id)
           embed.add_field(
               name="Statut",
-              value="✅ " + message.author.name + " a rejoint le lobby "+ str(index) + " (1/2)", 
+              value="✅ " + message.author.name + " joined lobby "+ str(index) + " (1/2)", 
               inline=False)
         elif len(lob) == 1:
           playerDB = db[str(message.author.id)]
@@ -73,7 +73,7 @@ async def can(client: discord.Client, message: discord.Message):
           lob.append(message.author.id)
           embed.add_field(
               name="Statut",
-              value="✅ " + message.author.name + " a rejoint le lobby "+ str(index) + " (2/2)",
+              value="✅ " + message.author.name + " joined lobby "+ str(index) + " (2/2)",
               inline=False)
         elif index == len(lobbies["players"]):
           lobbies["players"].append([])
@@ -102,7 +102,7 @@ async def drop(client: discord.Client, message: discord.Message):
     return -1
   else:
     lobbies["players"][index].remove(user.id)
-    embed.add_field(name="Statut", value=user.name+" a quitté le lobby "+str(index+1))
+    embed.add_field(name="Statut", value=user.name+" left lobby "+str(index+1))
     for lob in lobbies["players"]:
       if len(lob) == 1:
         p = lob[0]

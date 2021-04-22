@@ -79,6 +79,11 @@ async def setDataBase(client: discord.Client, message: discord.Message):
 
   await message.channel.send("done")
 
+async def printDataBase(client: discord.Client, message: discord.Message):
+  keys = db.keys()
+  for key in keys:
+    await message.channel.send(key + ": " + str(db[key]))
+
 async def manualMatch(client: discord.Client, message: discord.Message):
   space = []
   index = 0
@@ -142,3 +147,4 @@ async def manualMatch(client: discord.Client, message: discord.Message):
   
   gain = elo(p1.id, p2.id)
   await message.channel.send(gain)
+

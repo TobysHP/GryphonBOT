@@ -3,7 +3,6 @@ import os
 import player as pl
 import lobby as lo
 import decks as de
-import lineup as lu
 import sheet
 import sys
 import functions as f
@@ -107,17 +106,11 @@ async def on_message(message):
     elif mess == "sheet":
       try:
         sheet.updateDatas()
-        await message.channel.send("https://docs.google.com/spreadsheets/d/14iz0t1vsWijLT6t219XanYJkplIizeNlEKFtti-ZxHE/edit#gid=148969983")
+        await message.channel.send("https://docs.google.com/spreadsheets/d/1J7jspc-HMTsmAlR0SXgbMflFOuikpPqpdYnPVRVMgg0/edit?usp=sharing")
 
       except:
         pass
 
-    ################################
-    ## COMMANDES LIEES AUX LINEUP ##
-    ################################
-
-    elif mess == "lu":
-      await lu.lineup(client, message)
 
     else:
       await message.channel.send("Cette commande n'existe pas")
@@ -151,6 +144,9 @@ async def on_message(message):
     if mess == "setDB":
       await f.setDataBase(client,message)
     
+    if mess == "printDB":
+      await f.printDataBase(client,message)
+    
     if mess == "addDeck":
       await de.addDeck(client, message)
 
@@ -180,7 +176,8 @@ async def on_reaction_add(reaction, user):
 
 #reset database
 
-'''keys = db.keys()
+'''
+keys = db.keys()
 for key in keys:
   del db[key]
   #print(key, db[key])

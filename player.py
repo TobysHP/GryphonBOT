@@ -12,15 +12,15 @@ import matplotlib.pyplot as plt
 
 async def participate(client: discord.Client, message: discord.Message):
     player = message.author
-    embed = discord.Embed(title="Inscription", color=0xf5a816)
+    embed = discord.Embed(title="Registration", color=0xf5a816)
     embed.add_field(name=player.name, value=player.id, inline=False)
     if player.id in db:
         embed.add_field(
-            name="Statut", value="❌ Utilisateur déjà inscrit", inline=False)
+            name="Statut", value="❌ User already registered", inline=False)
     else:
         db[player.id] = {"ELO": [0], "decks": {}, "W": [], "L": [], "D2P": [*db["decks"]][0], "canID" : 0}
         embed.add_field(
-            name="Statut", value="✅ Utilisateur enregistré", inline=False)
+            name="Statut", value="✅ Registered user", inline=False)
     await message.channel.send(embed=embed)
 
 
@@ -51,9 +51,9 @@ async def win(client: discord.Client, message: discord.Message):
   embed = discord.Embed(title="Close lobby", color=0xf5a816)
   index = l.checkLobby(user.id)
   if index == -1:
-    embed.add_field(name="Statut", value=user.name+" ne fait partie d'aucun lobby")
+    embed.add_field(name="Statut", value=user.name+" is not part of any lobby")
   elif len(db['lobby']["players"][index])<2:
-    embed.add_field(name="Statut", value="Vous n'avez pas encore d'adversaire")
+    embed.add_field(name="Statut", value="You don't have an opponent yet")
   else:
     p1 = await client.fetch_user(int(db['lobby']["players"][index][0]))
     p2 = await client.fetch_user(int(db['lobby']["players"][index][1]))
@@ -62,7 +62,7 @@ async def win(client: discord.Client, message: discord.Message):
       p2 = await client.fetch_user(int(db['lobby']["players"][index][0]))
     embed.add_field(name=p1.name, value=p1.id, inline=False)
     embed.add_field(name=p2.name, value=p2.id, inline=False)
-    embed.add_field(name="Statut", value="Veuillez confirmer la victoire de "+ user.name, inline=False)
+    embed.add_field(name="Statut", value="Please confirm the victory of "+ user.name, inline=False)
   msg = await message.channel.send(embed=embed)
   await msg.add_reaction("✅")
   await msg.add_reaction("❌")
@@ -72,12 +72,12 @@ async def win(client: discord.Client, message: discord.Message):
   try:
     await msg.delete()
     gain = l.closeLobby(index, p1.id, p2.id)
-    embed = discord.Embed(title="Résultat", color=0xf5a816)
+    embed = discord.Embed(title="Result", color=0xf5a816)
     embed.add_field(name=p1.name, value="+ "+str(gain), inline=False)
     embed.add_field(name=p2.name, value="- "+str(gain), inline=False)
     await message.channel.send(embed=embed)
   except:
-    print("lobby déjà close")
+    print("lobby already close")
   
 async def stat(client: discord.Client, message:discord.Message):
   #recup tous les messages
@@ -99,14 +99,14 @@ async def stat(client: discord.Client, message:discord.Message):
       except:
         print("err: "+key)
     if compt == 0:
-      embed = discord.Embed(title="Close lobby", description="❌ Les noms inscrits ne participent pas à la Gryphon League", color=0xf5a816)
+      embed = discord.Embed(title="Close lobby", description="❌ Names written do not participate in the Lost Tribe League", color=0xf5a816)
       await message.channel.send(embed=embed)
       return 0
     
     plt.grid(True)
     plt.legend()
     plt.ylabel('ELO')
-    plt.xlabel('nombre de parties')
+    plt.xlabel('number of games')
     plt.savefig('graph.png')
     await message.channel.send(file=discord.File('graph.png'))
     plt.clf()
@@ -121,13 +121,13 @@ async def indivStat(client: discord.Client, message:discord.Message,user: discor
   embed.set_thumbnail(url=user.avatar_url)
 
   # DECK ACTUEL
-  embed.add_field(name="Deck", value=db[str(user.id)]["D2P"], inline=False)
+  embed.add_field(name="Current Deck", value=db[str(user.id)]["D2P"], inline=False)
 
   # CURRENT ELO
   embed.add_field(name="ELO", value=db[str(user.id)]["ELO"][-1], inline=False)
 
   # MAX ELO
-  embed.add_field(name="Record", value=max(db[str(user.id)]["ELO"]), inline=False)
+  embed.add_field(name="Peak", value=max(db[str(user.id)]["ELO"]), inline=False)
 
   # AVERAGE
   ELO = db[str(user.id)]["ELO"]
@@ -137,7 +137,7 @@ async def indivStat(client: discord.Client, message:discord.Message,user: discor
       if ELO[i]<ELO[i+1]:
         win += 1
 
-    embed.add_field(name="Ratio", value = str(win/(len(ELO)-1) * 100)+" %", inline=False)
+    embed.add_field(name="Average", value = str(win/(len(ELO)-1) * 100)+" %", inline=False)
 
   # RATIO PAR DECKS
 
@@ -147,11 +147,11 @@ async def indivStat(client: discord.Client, message:discord.Message,user: discor
     l = db[str(user.id)]["decks"][deck]["L"]
     stat += "{}: {}% ({}-{})\n".format(deck, 100*w/(w+l), w, l)
 
-  embed.add_field(name="Ratio", value = stat, inline=False)
+  embed.add_field(name="Average per deck", value = stat, inline=False)
 
   # NB DE GAMES
   if len(ELO) > 1:  
-    embed.add_field(name="Nombre de parties", value = len(ELO)-1, inline=False)
+    embed.add_field(name="Number of games", value = len(ELO)-1, inline=False)
 
 
   await message.channel.send(embed=embed)
